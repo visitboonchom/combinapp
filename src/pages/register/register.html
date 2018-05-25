@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>ลงทะเบียน</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Fullname</ion-label>
+    <ion-input type="text" [(ngModel)]="userData.fullname"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="email" [(ngModel)]="userData.email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" [(ngModel)]="userData.password"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Telephone</ion-label>
+    <ion-input type="tel" [(ngModel)]="userData.tel"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>ProfileImage</ion-label>
+    <ion-input type="file" [(ngModel)]="userData.profile"></ion-input>
+  </ion-item>
+
+  <p>
+    <button ion-button block color="secondary" round (click)="register()">SUBMIT</button>
+  </p>
+</ion-content>
