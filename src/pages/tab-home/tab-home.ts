@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RegisterPage } from '../register/register';
 
+//import การสร้างตัวแปรแบบ storage
+import { Storage } from '@ionic/storage';
+
 
 @IonicPage()
 @Component({
@@ -10,14 +13,28 @@ import { RegisterPage } from '../register/register';
 })
 export class TabHomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  email: any;
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public storage: Storage) {
+
+    this.storage.set('myemail', 'visitbee@gmail.com');
+
+    //สร้างตัวแปรเก็บลง storage
+    this.storage.get('myemail').then((result) => {
+      this.email = result;
+    });
+
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TabHomePage');
   }
 
-  register(){
+  register() {
     this.navCtrl.push(RegisterPage);
   }
 }
